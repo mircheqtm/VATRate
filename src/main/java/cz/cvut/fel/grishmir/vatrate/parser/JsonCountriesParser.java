@@ -55,7 +55,7 @@ public class JsonCountriesParser implements CountriesParser{
 
     private String parseStringValue(JSONObject countryInfo, String key) {
         Object value = countryInfo.get(key);
-        if (countryInfo.get(key) == null) {
+        if (value == null) {
             return null;
         }
         return value.toString();
