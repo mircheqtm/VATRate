@@ -27,6 +27,11 @@ public class HttpReader {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         String body = response.body();
+
+        if(response.statusCode() != 200){
+            throw new IllegalArgumentException("Failed loading data from" + path);
+        }
+
         return parser.parse(body);
     }
 
